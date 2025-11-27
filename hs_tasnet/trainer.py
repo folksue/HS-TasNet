@@ -66,7 +66,12 @@ def db_to_amplitude(db):
     return 10 ** (db / 20.)
 
 def not_improved_last_n_steps(losses, steps):
-    if len(losses) <= steps:
+
+    if (
+        not exists(steps) or
+        steps < 0 or
+        len(losses) <= steps
+    ):
         return False
 
     best_loss = losses.amin()

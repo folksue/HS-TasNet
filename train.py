@@ -26,6 +26,8 @@ def train(
     split_dataset_for_eval = True,
     split_dataset_eval_frac = 0.05,
     clear_folders = False,
+    decay_lr_steps = 3,
+    early_stop_steps = 10,
     use_full_musdb_dataset = False,
     full_musdb_dataset_root = "./full-musdb-dataset"
 ):
@@ -51,7 +53,9 @@ def train(
         use_wandb = use_wandb,
         experiment_project = wandb_project,
         experiment_run_name = wandb_run_name,
-        random_split_dataset_for_eval_frac = 0. if not split_dataset_for_eval else split_dataset_eval_frac
+        random_split_dataset_for_eval_frac = 0. if not split_dataset_for_eval else split_dataset_eval_frac,
+        decay_lr_if_not_improved_steps = decay_lr_steps,
+        early_stop_if_not_improved_steps = early_stop_steps
     )
 
     if clear_folders:
