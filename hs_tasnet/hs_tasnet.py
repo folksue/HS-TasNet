@@ -9,7 +9,12 @@ from functools import partial, wraps
 import torchaudio
 from torchaudio import transforms as T
 from torchaudio.functional import resample
-from torchcodec.encoders import AudioEncoder
+
+try:
+    from torchcodec.encoders import AudioEncoder
+except Exception as e:
+    AudioEncoder = None
+    print(f"Warning: failed to import torchcodec - {str(e)}")
 
 import sounddevice as sd
 

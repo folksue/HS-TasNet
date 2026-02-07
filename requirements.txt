@@ -1,0 +1,16 @@
+accelerate>=1.10.0
+einx>=0.3.0
+einops>=0.8.1
+ema-pytorch
+librosa
+loguru
+matplotlib
+musdb
+sounddevice
+soundfile
+torch>=2.4
+torchaudio
+torchcodec
+fire
+wandb
+pytest
